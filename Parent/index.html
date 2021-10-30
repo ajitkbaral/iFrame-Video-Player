@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    // document.domain = "mydomain.com";
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent</title>
+    <style>
+        iframe {
+            border: 0;
+            width: 640px;
+            height: 264px;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="iframe" src="http://127.0.0.1:5501/test.html"></iframe>
+    <div>
+        <button onclick="play()">Play</button>
+        <button onclick="pause()">Pause</button>
+        <button onclick="skip()">Skip 10 secs</button>
+    </div>
+</body>
+<script>
+
+var iFrameEl =  document.getElementById('iframe');
+    function play() {
+        iFrameEl.contentWindow.postMessage('Play', 'http://127.0.0.1:5501/test.html')
+    }
+
+    function pause() {
+       iFrameEl.contentWindow.postMessage('Pause', 'http://127.0.0.1:5501/test.html')
+    }
+
+    function skip() {
+       iFrameEl.contentWindow.postMessage('Skip', 'http://127.0.0.1:5501/test.html')
+    }
+    
+    
+</script>
+</html>
